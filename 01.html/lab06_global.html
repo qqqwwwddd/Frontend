@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab06_global.html</title>
+</head>
+<body>
+    <!-- data-* : 사용자 정의 데이터 -->
+    <div data-global-info="data 속성">데이터</div>
+    <!-- div(dom).dataset.dataGlobalInfo -->
+
+    <!-- draggable : 요소의 drag and drop 사용 여부 결정할때 사용 -->
+    <div title="드래그 가능" draggable="true" ></div>
+
+    <!-- tabindex : Tab 키를 이용해 요소를 순차정로 -->
+    <!-- 대화형컨텐츠(input, audio, object, ..)는 코드 순서대로 탭 순서 지정 -->
+    <!-- 비대화형 컨텐츠에 tabindex="0" 지정 안됨  -->
+    <input type="text" value="1">
+    <input type="text" value="2">
+    <div tabindex="0">2.5</div>
+    <input type="text" value="3">
+    <input type="text" value="4">
+    <input type="text" value="5">
+
+
+    <hr>
+    <!-- 특수기호 (Entity) -->
+    < &lt; > &gt;
+
+</body>
+</html>

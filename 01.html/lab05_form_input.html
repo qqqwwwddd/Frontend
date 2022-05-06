@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab05_form_input.html</title>
+</head>
+<body>
+    <!-- 입력과 비밀번호  -->
+    <form action="">
+        ID : <input type="text"><br>
+        PW : <input type="password">
+        <!-- 버튼 type : reset , submit -->
+        <button type="submit">login</button>
+    </form>
+
+    <!-- 셀렉트 박스  -->
+    <form action="">
+        <select name="" id="">
+            <option value="">월</option>
+            <option value="1" selected>1</option>
+            <option value="2" selected>2</option>
+        </select>
+    </form>
+
+
+    <hr>
+
+    <!-- 라디오박스  -->
+    <form action="">
+        <input type="radio" name="sexual">남
+        <input type="radio" name="sexual">여
+    </form>
+
+    <br>
+
+    <!-- 체크 박스 -->
+    <form action="">
+        <input type="checkbox" name="genre"> 공포
+        <input type="checkbox" name="genre"> 액션
+        <input type="checkbox" name="genre"> 드라마
+
+    </form>
+
+    <hr>
+
+    <!-- 전달 -->
+    <!--  default, GET 방식 데이터 요청 url값으로 확인가능 -->
+    <!-- 데이터 보안ㄴ상 좋지 않음  -->
+    <!-- url 에 전달가능한 데이터양이 한정 -->
+    <form action="https://search.naver.com/search.naver?">
+        N: <input type="text" name="query">
+        <input type="submit" value="검색">
+
+    </form>
+
+    <!-- 구글버전 -->
+    <form action="https://www.google.com/search?">
+        G: <input type="text" name="query">
+        <input type="submit" value="검색">
+
+    </form>
+
+    <hr>
+
+    <!-- 비디오 -->
+
+    <video src="/multimedia/TeachableMachine.mp4"
+          type="video/mp4"
+          controls
+          width="480px"
+          autoplay></video>   
+    
+</body>
+</html>

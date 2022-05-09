@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab01_style.html</title>
+    <style>
+        article .pic {
+            width: 100px;
+            height: 100px;
+            background: darkblue;
+            margin: 10px;
+            float: left;
+        }
+
+        .p2 {
+            clear: left;
+        }
+
+
+        /* 가로 정렬 float */
+        .box {
+            width: 100px;
+            height: 100px;
+            background: gold;
+            margin: 10px;
+            float: left;
+
+        }
+
+        /* 1. 형제 요소 clear로 해제 */
+        .box4 {
+            width: 200px;
+            height: 150px;
+            background: tomato;
+            clear: left;
+        }
+
+        /* 2. 부모 요소 해제 */
+        .parent {
+            overflow: hidden;
+        }
+
+        /* 3. clearfix 로 해제 */
+        .clearfix::after {
+            content: "---";
+            clear: both;
+            display: block;
+        }
+        /* -> 형제요소가 없어도 있는 것 처럼 해서 해제  */
+
+
+        span {
+            width: 100px;
+            height: 100px;
+            background: violet;
+            margin: 10px;
+            float: left;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <!-- float : 요소를 좌우 방향으로 정렬(띄움) -->
+    <!-- none, left, right -->
+
+    <article>
+        <div class="pic"></div>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat dolorem possimus facilis cumque quia quam sit modi, recusandae magnam porro architecto voluptates facere reiciendis ipsam animi eius veniam eum unde.
+        <div class="p2">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis nostrum molestias dolore maiores soluta officia expedita sit at autem, quas corrupti accusantium sapiente ut reprehenderit incidunt officiis aliquam iste id?
+        </div>
+    </article> 
+
+    <hr>
+    <!-- <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box4"></div> -->
+
+    <!-- float : 해제방법  -->
+    
+    <!-- 1. 형제 요소에 clear: left, right, both -->
+    <!-- 만약 해제 대상 형제 요소가 없다면? -->
+
+    <!-- 2. 부모 요소에 overflow : hidden, auto -->
+    <div class="parent">
+        <div class="child"></div>
+        <div class="child"></div>
+    </div>
+    <!-- overflow는 정렬과 관계 없는 property 이므로 적절치 않음 -->
+
+    <!-- 3. 부모 요소에 clearfix 클래스 추가 -->
+    <div class="clearfix">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>    
+    </div>
+    <div class="box4">4</div>
+
+    <hr>
+    <!-- float의 경우 inline-, table- 요소를 block으로 변경하는 부분이 내포  -->
+
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+
+
+</body>
+</html>

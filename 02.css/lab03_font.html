@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab03_font.html</title>
+    <style>
+        /* font-style */
+        /* font-weight */
+        p {
+            font-style : italic;
+            font-weight: 700;
+        }
+
+
+        /* font-size */
+        div {
+            font-size: 32px;
+        }
+
+        body * {
+            border: 2px solid;
+        }
+
+        .container {
+
+            font-size: 10px;
+            /* width: 200px; */
+            width: 20em;
+
+            /* 10px = 1em */
+            /* em : 자기 자신의 폰트 크기를 기준으로 삼음 */
+        }
+
+        .parent {
+            
+            font-size: 10px;
+            /* width: 100px; */
+            /* width: 50%; */
+            width: 10em;
+
+        }
+
+        /* % :부모요소의 단위에 영향을 받는다  */
+
+        .child {
+            /* width: 50px; */
+            /* rem : 최상위 root의 폰트 크기를 기준으로 삼음 */
+            width: 5rem;
+        }
+
+
+        html {
+            font-size: 10px;
+        }
+
+
+        /* vh, vw */
+        .container2 {
+            width: 50vw;
+            height: 50vh;
+        }
+
+        /* line-height */
+        .line {
+            line-height: 2;
+        }
+
+
+        /* color */
+        .color {
+            /* color : red;     */
+            /* colog : rgb(255,0,0); */
+            color: #FF0000;
+        }
+
+        .family {
+            font-family: cursive;
+        }
+
+        /* text-align */
+        .align {
+            text-align : justify;
+        }
+
+
+        /* text-decoration */
+        .deco {
+            text-decoration: line-through;
+        }
+
+        /* text-indent */
+        .indent {
+            text-indent: 10px;
+        }
+
+        .css {
+            text-indent: -9999px;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+        <!-- font- style -->
+        <!-- <p>폰트 스타일 입니다</p> -->
+
+        <!-- font-weight -->
+        <!-- <p>폰트 웨이트 입니다</p> -->
+
+
+        <!-- font-size -->
+        <!-- 단위 : px, cm, %, em -->
+        <!-- 기준 : 16px -->
+        <!-- small, medium(16px) -->
+        <!-- <p>폰트 사이즈 입니다</p> -->
+
+        
+        
+        <!-- 단위 디테일 -->
+        <!-- div.container>div.parent>div.child*2 -->
+        <!-- <div class="container">컨테이너
+            <div class="parent">부모
+                <div class="child">자식1</div>
+                <div class="child">자식2</div>
+            </div>
+        </div> -->
+
+        <!-- vw, vh -->
+        <!-- <div class="continer2"></div> -->
+
+        <!-- line-height -->
+        <!-- <div class="line">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit quo, nisi dolorem similique quia ullam, perspiciatis recusandae non libero, cum expedita repellat natus animi ab quaerat deleniti veniam doloribus error!</div> -->
+
+
+        <!-- color -->
+        <!-- <div class="color"> 폰트 컬러 입니다 </div> -->
+  
+        <!-- font-family -->
+        <!-- : [글꼴 후보1, 2,...], 글꼴 계열 -->
+        <!--  글꼴 후보는 없어도 계열은 반드시 존재해야 함 -->
+        <!-- serif : 바탕체
+             sans-serif : 고딕체
+             monospace : 가로폭 동등한 고정 너비
+             cusive : 필기체
+             fantasy : 재미있는 글꼴 계열 -->
+
+        <!-- <div class="family">Hello, CSS</div> -->
+    
+        <!-- text-align -->
+        <!-- <div class="align">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum minus officiis illo placeat illum quas, laudantium distinctio, repellat, exercitationem atque nihil veniam optio quod expedita rerum quibusdam necessitatibus nobis veritatis?</div> -->
+
+        <!-- text-decoration -->
+        <div class="deco">
+            Hello, class        
+        </div>
+
+        <!-- text-indent -->
+        <div class="indent">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quas, possimus optio aliquam sed error! Voluptas, rem. In doloribus maiores, suscipit officiis esse natus et quo nam explicabo reprehenderit modi?</div>
+        <div class="css">CSS3</div>
+        <img src="https://cdn-icons"
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </body>
+</html>

@@ -41,10 +41,10 @@
         /* ul > li {
             color: red;
         } */
-
+/* 
         .fruits li {
             color: red;
-        }
+        } */
 
         /* 형제 선택자 */
         /* 인접 형제 선택자 : 가장 가까이 있는것만 선택 */
@@ -53,9 +53,9 @@
         } */
 
         /* 일반 형제 선택자 : 다음에 있는것 적용대상 , 여러개 선택 가능 */
-        .test ~ li {
+        /* .test ~ li {
             color: red;
-        }
+        } */
 
         /* 가상 클래스 선택자 */
         /* 방문하지 않은 링크 */
@@ -82,6 +82,62 @@
         input:focus {
             background-color: cadetblue;
         }
+        
+        /*  :first-child  */
+        /*  :last-child  */
+        /* .fruits li:last-child {
+            color: red;      
+        } */
+
+        /* :nth-child  */
+        /* (선택 요소의 순번) */
+        /* n -> 0부터 시작 */
+        /* .fruits li:nth-child(2) {
+            color: red;
+        } */
+        .fruits li:nth-child(n+3) {
+            color: aqua;
+        }
+        /* :nth-child() 주의 사항!! */
+        /* .group p:nth-child(1) {
+            color: red;
+        } */
+
+        /* :nth-of-type() */
+        /* .group p:nth-of-type(1){
+            color: red;
+        } */
+
+
+        /*  부정 선택자 not(제외시킬대상)*/
+        /* .fruits li:not(.test){
+            color: red;
+        } */
+
+        /* 가상요소선택자 :: */
+        /* li 태그 앞에 붙이기 */   
+        .before li::before {
+            content: "숫자";
+            color: gold;
+        }
+
+        /* 속성 선택자 []로 선택 */
+        [disabled] {
+            color: red;
+        }
+
+        [type="password"] {
+            color: blue;
+        }
+
+        [class^="btn-"] {
+            color: green;
+        }
+
+        [class$="top"] {
+            color: violet;
+        }
+
 
 
     </style>    
@@ -127,6 +183,37 @@
     <!-- 가상 클래스 선택자 -->
     <a href="">링크를 건들어 보세요</a>
     <input type="text">
+
+
+    <hr>
+    <!-- 가상 요소 선택자 -->
+    <!-- ul>(li{$})*10 -->
+    <ul class="before">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+
+    <hr>
+
+    <!-- 속성 선택자 -->
+    <input type="text" value="fullstack">
+    <input type="password" value="2022">
+    <input type="text" value="disabled text" disabled>
+
+    
+    <button class="btn-top">top</button>
+    <button class="btn-bottom">bottom</button>
+
+
+
 
 </body>
 </html>

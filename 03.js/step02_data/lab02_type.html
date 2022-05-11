@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab02_type.html</title>
+</head>
+<body>
+    <script>
+        // js 의 자료형은 동적 타입(변수에 할당되는 데이터 타입이 정해져 있지 않은 상태) 
+
+        
+        // typeof 
+        // 기본(원시 , primitive) VS 객체(reference)
+        // 기본 data type
+        // Number (숫자)
+            console.log('------- 숫자 ---------');
+            console.log(10); // 양수
+            console.log(-10); // 음수
+            console.log(10.2); // 실수 
+            console.log(typeof(10.2)); 
+            console.log(10/3);
+            //NaN : Not a Number 
+            console.log('Ten'/3); // NaN 
+            // Infinity
+            console.log(10/0); // Infinity 
+
+            // String (문자열)
+            console.log('-------문자열---------');
+            console.log("큰 따옴표 문자열 가능");
+            console.log("큰 따옴표 안에 '작은 따옴표'");
+            console.log('작은 따옴표 안에 "큰 따옴표"');
+            // console.log("큰 따옴표 안에 "큰 따옴표""); // 안됨
+            // console.log('작은 따옴표 안에 '작은 따옴표''); // 안됨
+
+            //escape
+            console.log("큰 따옴표 안에 \"큰따옴표\"");
+            // console.log("한줄
+            //  띄어쓰기"); //Uncaught SyntaxError: Invalid or unexpected 
+            
+
+            // 백틱 : 문자열 출력할때 내부의 변수값 출력해주는 기능 사용 
+            console.log(`한줄
+            띄어쓰기`);
+            let lecture = "JS";
+            console.log(typeof'우리는 JS 학습 중입니다'); // string
+            console.log('우리는 lecture 학습중입니다');
+            console.log('우리는 ' + lecture + '학습중입니다');
+            // 템플릿 리터럴 
+            console.log(`우리는 ${lecture} 학습중입니다`);
+            console.log(typeof(`우리는 ${lecture} 학습중입니다`)); // string
+            
+
+            // Boolean (불리언) : 참 true / 거짓 false 
+            console.log('------불리언------');
+            console.log(true);
+            console.log(1 > 2);  // false
+        
+            
+            // Undefined & Null
+            // undefined : 값이 할당 되지 않은 상태
+            console.log(typeof(def)); // undefined
+
+            // null : 어느 자료형에도 속하지 않는 아무런 데이터가 없는 상태
+            console.log(typeof(null)); // object
+            
+            // Symbol : 고유한 값
+            console.log('--------Symbol------');
+            let a = Symbol();
+            console.log(typeof(a));  // symbol
+            
+
+            let b = Symbol('js');
+            let c = Symbol('js');
+            console.log(b == c);  //false
+            
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

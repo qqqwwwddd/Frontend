@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab01_variable.html</title>
+</head>
+<body>
+    <script>
+        // 순서
+        var x; // 변수의 선언 
+        console.log(x);
+        // console.log(y); // 에러 
+        x = 10; // 할당 : 변수에 직접 데이터값 넣어줌
+        var x2 = 20; // 선언 + 할당 = 초기화 
+        
+        console.log(x);
+        console.log(x2);
+
+        x = 30; // 재초기화
+        console.log(x);
+
+        var x = '사십'; 
+        // js는 문자도 가능하기 때문에 주의  
+        // var 재선언되어서 사용되면 에러 출력안되고 그대로 적용
+        // 원래 사용하려 했던 x 제대로 사용 못할 수 있음
+        console.log(x); 
+
+
+        // let : var보다 변수 명확하게 사용가능
+        let y = 5;
+        y = 15;
+
+        // let y = 25; // 같은 이름이면 에러 
+
+        // 변수의 범위 // 뒤에서 다시설명
+        {
+            let y = 25;
+        }
+
+        // const : Constant 상수
+        const c = 10;
+        console.log(c);
+
+        // c = 20; // TypeError: Assignment to constant variable.
+        // 상수는 두번이상 사용 할 수 없음 
+
+
+
+
+
+
+
+    
+
+    </script>
+</body>
+</html>

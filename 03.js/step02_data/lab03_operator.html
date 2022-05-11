@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab03_operator.html</title>
+</head>
+<body>
+    <script>
+        // 연산(Operation), 연산자(Operator)
+        // 산술연산 //
+        console.log(1 + 2); // 사칙연산
+        console.log((1 + 2) * 3);
+        console.log(1 + (2 * 3));
+
+        let a = 1;
+        let b = 2;
+        console.log(a * b);
+        // % : 나머지 값 
+        console.log(10 / 3);
+        console.log(10 % 3);
+        console.log(2 % 3);
+        // ** : 제곱
+        console.log(10 ** 3); // 1000
+
+        // 문자에 대한 산술연산은 덧셈만 가능    
+        console.log('a' + 'b'); //ab
+        console.log('a' + 3); // a3
+        console.log('a' ** 'b'); // NaN
+        
+        // 단항 연산 (++ / --)
+        let c = 3;
+        console.log(c++); // 3
+        console.log(c); // 4
+        // ++를 뒤에 사용하면 이후 결과에는 1더해서 새로운 값으로 할당
+        
+        c = 4;
+        console.log(++c); // 5
+        console.log(c); // 5
+
+        // 대입 연산 //
+        // = , += , -= , *= , /= , %= ..
+        let x = 10;
+        x += 1;
+        console.log(x); // 11
+        x %= 3;
+        console.log(x); // 2
+
+        // 비교 연산 //
+        // == , ... , != , ===, !==
+        console.log('------비교 연산-------');
+        console.log(3 != 3); //false 
+
+        let y = 10; // number
+        let z = '10'; // string
+        console.log( y == z); // true, == : 값만 같은지 비교
+        console.log( y === z); // false, === : 값과 타입이 같은지 비교
+
+        // 논리 연산 //
+        console.log('------논리 연산------');
+        // && : 모든 결과가 참일 때 ==> true
+        console.log( (10 < 9) && ('a' === 'a')); // false
+
+        // || : 모든 결과가 거짓일 때 ==> false
+        //    :  결과중 하나라도 참이라면 ==> true
+        console.log((10 < 9) || ('a' === 'b'));
+        
+        // !  : 최종 결과값의 반대 값
+        console.log( !((10 > 9) && ('a' === 'a')) );
+        console.log( !true);
+
+
+        
+
+
+
+    </script>
+    </body></html>
+        
+        
+        

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab02_scope.html</title>
+</head>
+<body>
+    <script>
+        // 변수의 유효범위 {}
+        // let, const : 블록 스코프 
+        let scope1 = 10;
+        {
+            let scope1 = 20;
+        }
+        console.log(scope1); //-> 외부에 있으니깐 외부의 scope1=10 출력
+        // 두개일때 코드 블럭 기준으로 외부에 있는것은 외부에서 내부-내부에서 쓰인다  
+
+        let scope2 = 30;
+        {
+            let scope2 = 20;
+            console.log(scope2); //-> 20
+        }
+        // 내부에 있는걸 내부에서 사용 
+
+        {
+            let scope3 = 40;
+        }
+        // console.log(scope3); //-> Uncaught ReferenceError: scope3 is not defined 
+        // 코드블럭 내부에 있는걸 외부에서 사용 못함 
+
+
+        // var : 함수 스코프 
+        {
+            var scopeVar = 50;
+        }
+        console.log(scopeVar); // 블록 스코프가 의미가 없음
+        
+        var scopeVar2 = 60;
+        console.log(scopeVar2);
+        (function(){
+            scopeVar2++;
+            console.log(scopeVar2);  // 61 출력 사용가능
+        })();
+
+        (function(){
+            var scopeVar3 = 70;
+            console.log(scopeVar3); // 70 출력
+        })();
+        // console.log(scopeVar3); //->Uncaught ReferenceError: scopeVar3 is not defined
+
+        // ==> var는 블록스코프가 아니라 외부에서 쓰인것도 내부에서 쓰였음 => let 사용 
+
+
+        // hoisting : (선언부만) 끌어 올리다
+        // hoisting : var
+        console.log(hoist);
+        var hoist = 'hoist(var)'; //->undefined
+        // == //
+        var hoist;
+        console.log(hoist); //->undefined
+        // => var 사용하면 정확한 결과값 출력 못할 수 있음 , 
+        // 초기화 사용전 변수이용먼저 했으면 출력데이터 없는것 처럼 나타나기 때문
+
+        
+        // hoisting : let
+        let hoistLet = 'hoist(let)';
+        console.log(hoistLet); //->hoist(let)출력 
+
+        // console.log(hoistLet1);     
+        // let hoistLet1 = 'hoist(let)'; //->Uncaught ReferenceError: Cannot access 'hoistLet1' before initialization
+        // // let은 hoist 안됨
+
+
+        // 함수의 선언식과 표현식의 차이점
+        // 함수의 선언식만이 호이스팅 가능!
+        print1(); // print1
+        // print2(); //Uncaught TypeError: print2 is not a function
+
+        function print1(){
+            console.log('print1');
+        }
+        var print2 = function() {
+            console.log('print2');
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>

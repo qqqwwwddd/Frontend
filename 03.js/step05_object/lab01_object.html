@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab01_object.html</title>
+</head>
+<body>
+    <script>
+        // 객체(Objcet) : 실제 존재하고 있는 사물의 실체, 속성/기능(동작)
+        // 객체는 설계도 반드시 필요 / 속성값, 어떻게 만들지  
+
+        // 1. 리터럴
+        let obj1 = {};
+        console.log(obj1);
+        console.log(typeof(obj1));
+        obj1.id = 1;
+        obj1.name = "js1";
+        console.log(obj1);
+
+
+        let obj2 = {id: 1, name: "js1"};
+        console.log(obj2);        
+
+
+        // 2. 생성자 함수
+        let obj3 = new Object();
+        console.log(obj3);
+        console.log(typeof(obj3));
+
+        // 3. 사용자 정의 생성자 함수 
+        function Customer(id, name) { //step02 id, name 넣기
+            // step01
+            // this.id = 1;
+            // this.name = 'js1';
+
+            // step02 (Obj5 이후에 수정)
+            this.id = id;
+            this.name = name;
+
+            // 함수(메서드) : 함수 내부에서 사용함
+            this.getName = function() {
+                return this.name; 
+            }
+
+            this.getId = function() {
+                return this.id;
+            }
+
+
+        }
+        // 생성자 함수 내에서 this : 객체가 만들어졌을때 자기자신 의미 
+
+        let obj4 = new Customer();
+        // console.log(obj4); //-> id name 속성값 안갖고있음 -> this. 키워드 붙여줘야함 
+        console.log(typeof(obj4)); // -> Object 
+        //->Customer {id: 1, name: 'js1'}
+
+        // -- 문제
+        let obj5 = new Customer();
+        // console.log(obj5); 
+        //->Customer {id: 1, name: 'js1'}
+    
+        console.log(obj4 == obj5); // false = 다른객체로 인식하지만 내부적으로는 동일한 값 가짐 
+
+        // -- 해결 (step1 step2 후 )
+        let obj6 = new Customer(1, "js1");
+        let obj7 = new Customer(2, "js2");
+
+        console.log(obj6);
+        console.log(obj7);
+    
+
+        console.log(obj7.getName());
+
+
+        // grade 추가 
+        obj7.grade = 'vip';
+        console.log(obj7); //-> js2
+
+        // 프로퍼티 삭제
+        delete obj7.grade;
+        // console.log(obj7); //-> 없음 
+        
+        // 객체 정보 반환
+        console.log(obj7.id);
+        console.log(obj7.grade); // 없는 프로퍼티 : undefined
+
+        console.log(obj7['id']);
+        console.log(obj7['grade']);
+        
+        //
+        console.log(Object.entries(obj7));
+        //-> (3) [Array(2), Array(2), Array(2)] 출력
+        console.log(Object.keys(obj7));
+        //-> (3) ['id', 'name', 'getName'] 키값만 출력
+        console.log(Object.values(obj7));
+        //-> (3) [2, 'js2', ƒ]
+
+        // for ~ in
+        for( let info in obj7 ) {
+            console.log(info);  //-> id / name / getName 
+        }
+
+        // for ~ in : ? 프로퍼티 value도 출력?
+        for( let info in obj7 ) {
+            console.log(info + ':' + obj7[info]);  
+        }
+
+        // 화살표 함수 변환
+        // 화살표 함수로 만든 객체는 내부에 this 가 형성되지 않음
+        // 생성자 함수 만들려면 무조건 일반 선언식으로 사용자함수 만들어야함 
+
+        function Cat(name, age){
+            this.name = name;
+            this.age = age;
+        }
+
+        let c = new Cat('js1', 3);
+        console.log(c);
+
+        // toString 정의 안되어있는데 어떻게 사용가능??
+        console.log(c.toString());
+
+        // prototype 
+        console.log(Cat.prototype); 
+        //->{constructor: ƒ}
+        // constructor: ƒ Cat(name, age)
+        // [[Prototype]]: Object
+        console.log(Cat.prototype.toString());
+        console.log(Cat.prototype.constructor); // 객체 생성될때 생성자정보
+     
+        // 왜 출력이 되지 않을까?
+        // 객체가 만들어진 후에 사용 가능 프로토타입은 오브젝트의 메서드 
+        // 프로토타입은 객체가 만들어 지기 전의 범위에 존재하고 있기 때문에
+        // 객체가 만들어지기 전에 prototype 이 존재한다는 것을 증명 
+        console.log(Cat.prototype.name); // -> undefined 
+        console.log(Cat.prototype.age); // -> undefined 
+        // prototype 은 값을 출력못함 
+        // prototype을 직접 지정해주면 사용 가능 
+        Cat.prototype.id = 1;
+        console.log(Cat.prototype.id);
+
+        // Object
+        console.log(Object.prototype);
+        // 모든 객체의 최상위 , prototype은 객체의 설계도 
+        // 모든 객체는 Object의 prototype을 통해 객체의 정보를 사용하고 있다 
+        // -> 모든 객체는 Object를 상속하고 있다 
+
+        // 좌측 instanceof 우측
+        console.log(c instanceof Cat);
+        console.log(c instanceof Object);
+
+
+        // prototype 을 통한 상속
+        function Person() {};
+        Person.prototype.getPlanet = function() {
+            console.log('Earth');
+        }
+
+        function Korean(region) {
+            this.region = region;
+            this.getLoc = function() {
+                console.log(this.region);
+            }
+        }
+        
+        // 상속전 
+        
+        console.log('---상속전---');
+        const k = new Korean("Busan");
+        // k.getPlanet(); // Korean 상속 받기 전에 사용 불가 
+        console.log(k instanceof Korean); // -> true
+        console.log(k instanceof Person); // -> false
+        
+
+        // 상속 후 
+        console.log('---상속후---');
+        Korean.prototype = Person.prototype;
+        const k2 = new Korean("Busan");
+        k2.getPlanet(); //-> Earth 출력 
+
+        console.log(k2 instanceof Korean); // -> true
+        console.log(k2 instanceof Person); // -> true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

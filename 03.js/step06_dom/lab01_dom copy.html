@@ -20,21 +20,26 @@
     </div>
 
     <script>
-        let num = 0;
+        let result = 0;
 
         const upClick = document.querySelector('#btn-up');
         const bottomClick = document.querySelector('#btn-bottom');
         const resultElement = document.querySelector('#result');
         
         upClick.addEventListener('click', (event) => { 
-            num++
-            resultElement.innerHTML = num;
+            // console.log(event.target)
+            // console.log(event.target.id)
+            // console.log(event.target.innerHTML)
+            result += 1;
+            resultElement.innerHTML = result;
         });
         
         bottomClick.addEventListener('click', () => { 
-            num--
-            resultElement.innerHTML = num;
+            result -= 1;
+            resultElement.innerHTML = result;
         });
+
+
     
     </script>
 </body>

@@ -1,4 +1,4 @@
-## [DOM] {https://github.com/qqqwwwddd/Frontend/blob/master/03.js/step06_dom/lab01_dom.html}
+# [DOM] {https://github.com/qqqwwwddd/Frontend/blob/master/03.js/step06_dom/lab01_dom.html}
 
 문서 객체 모델 (Document Object Model) : 웹페이지의 모든 컨텐츠를 객체로 표현하는 모델
 
@@ -6,7 +6,7 @@ DOM 트리 : DOM을 계층적으로 표현, 계층적인 단위 Node(노드, 관
 
 Document 객체 : 웹페이지 자체, 따라서 모든 HTML 요소에 접근하기 위해서는 Document 객체로 부터 시작
 
-# [DOM Selection(선택)]
+## [DOM Selection(선택)]
 
 -  getElementXXX
 
@@ -32,7 +32,7 @@ Document 객체 : 웹페이지 자체, 따라서 모든 HTML 요소에 접근하
     - querySelectorAll() : 선택자를 선택하여 배열과 비슷한 객체인 nodeList를 반환
         -> 반환객체가 nodeList이기에 for문 또는 forEach문을 사용           
 
-# [DOM Manipulation(조작)]
+## [DOM Manipulation(조작)]
 - document : DOM 은 document 객체에 구현되어 있어 브라우저에서 작동되는 코드에서는 document 객체 조회가능 
 
 - 추가
@@ -65,7 +65,7 @@ Document 객체 : 웹페이지 자체, 따라서 모든 HTML 요소에 접근하
 
 ---
 
-# [Node]
+## [Node]
     Node : HTML DOM ->  Node 라고 불리는 계층적 단위에 정보 저장하고 그 사이 관계를 설명해주는 역할 함 
 
     노드 트리 : HTML 문서의 정보가 저장되는 노드들의 집합 
@@ -93,19 +93,19 @@ Document 객체 : 웹페이지 자체, 따라서 모든 HTML 요소에 접근하
 
     ---
 
-## [Event] {https://github.com/qqqwwwddd/Frontend/blob/master/03.js/step06_dom/lab02_event.html}
+# [Event] {https://github.com/qqqwwwddd/Frontend/blob/master/03.js/step06_dom/lab02_event.html}
 
-# [Event 적용]
+### [Event 적용]
 
     1. 인라인 방식
     2. 프로퍼티 방식
     3. 이벤트 리스너 방식 
 
 ---
-# [BOM(Browser Object Model)]
+## [BOM(Browser Object Model)]
 : 자바 스크립트를 이용하여 브라우저를 제어가능 하도록 설정하는 객체 모델
 
-# [Event 종류]
+## [Event 종류]
     - MouseEvent : click, dbclick, mouseup, mousedown, ...
 
     - FocusEvent : focus, blur, focusin, focusout, ....

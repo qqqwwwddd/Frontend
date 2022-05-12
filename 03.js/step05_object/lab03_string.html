@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab03_string.html</title>
+</head>
+<body>
+    <script>
+        // 문자열 길이 length
+        let str1 = '부산광역시 해운대구 센텀동로 41 센텀벤처타운 205호 ';
+        console.log(str1.length);
+    
+        // charAt(idx) 해당 위치 index 에 있는 문자열을 반환
+        console.log(str1.charAt(3));
+    
+        // substring(idx1, idx2) : idx1 부터 idx2 -1 까지 반환해주는 메서드 
+        console.log(str1.substring(5, 9)); // 마지막 인덱스 포함 x
+
+        // replace(바꾸려는 글자, 바꿀 글자)
+        console.log(str1.replace('부산', 'Busan'));
+        
+        // split('') : 기준에 따라 문자열을 분할하여 배열로 반환
+        console.log(str1.split()); //-> 배열임 ['부산광역시 해운대구 센텀동로 41 센텀벤처타운 205호 ']
+        console.log(str1.split(' ')); // ['부산광역시', '해운대구', '센텀동로', '41', '센텀벤처타운', '205호', '']
+        
+        // concat() : 문자열 결합 
+        console.log("".concat("조금있으면", " 점심인데", " 오늘뭐먹지"));
+        // "" 에 concat("") 담아서 하나의 문자열로 출력
+        
+        
+    
+    
+    </script>
+
+
+</body>
+</html>

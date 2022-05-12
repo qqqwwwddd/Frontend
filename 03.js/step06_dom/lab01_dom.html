@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab01_dom.html</title>
+    <style>
+        .blue {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="dom">
+        <h1>Title</h1>
+        <div id="result">result</div>
+        <button id="btn-up" class="btn" name="up-button">up</button>
+        <button id="btn-bottom" class="btn">bottom</button>
+    </div>
+
+    <script>
+        // DOM 문서 객체 모델(Document Object Model)
+        // : 웹페이지의 모든 컨텐츠를 객체로 표현하는 모델
+
+        // DOM 트리 : DOM을 계층적으로 표현, 계층적인 단위 Node(노드, 관계성 개념)
+
+        // Document 객체
+        // : 웹페이지 자체, 따라서 모든 HTML 요소에 접근하기 위해서는 Document 객체로 부터 시작
+
+        // DOM Selection(선택)
+        // DOC
+        // document.body.style.background = 'gold';
+
+        // getElementXXX //
+        // getElementById() -> Id 는 단수(하나의 값)
+        const domElement = document.getElementById("dom");
+        console.log(domElement);
+
+
+        // getElementsByClassName() -> 복수의 형태로 출력 
+        const btnElements = document.getElementsByClassName("btn");
+        console.log(btnElements);
+
+        // getElementsByTagName -> HTMLCollection
+        const divTags = document.getElementsByTagName('div');
+        console.log(divTags);
+
+        // getElementsByName -> NodeList
+        const upBtn = document.getElementsByName('up-button');
+        console.log(upBtn);
+
+        // querySelector -> 단수형태로 반환 (하나만)  
+        // -> CSS 문법 적용 되어있어 . 이나 # 적용 시켜야함
+        // 복수 반환 하려면 querySelectorAll 해야함
+        const btnElement = document.querySelector('.btn');
+        console.log(btnElement); 
+
+        // querySelectorAll
+        const btnElements2 = document.querySelectorAll('.btn');
+        console.log(btnElements2);
+
+        // 노드는 각각이 관계성을 가진다
+        // 노드를 통한 접근
+            // 종류
+                // 문서 노드
+                // 요소 노드
+                // 속성 노드
+                // 텍스트 노드
+                // 주석 노드
+            
+            // 관계성 
+                // 조상(상위) / 부모 parentNode
+                // 자손(하위) / 자식 childNodes, firstChild, lastChild
+                // 형제 - nextSibiling(다음의 형제노드), previousSibiling(이전 형제노드)
+
+        // 최상위 노드 : document
+
+        console.log(document.childNodes); 
+        console.log(document.childNodes[1]);
+        console.log(divTags.childNodes); // undefined
+        console.log(domElement.nextElementSibling); // 여백자동제거 , 그다음 요소 접근
+        console.log(document.childNodes[1].childNodes[2]);
+        // 노드로 특정 요소에 접근하는것은 어려움 따라서 주의해서 사용해야함 
+
+        // DOM Manipulation(조작)
+        // document
+        const hrElement = document.createElement('hr');
+        // document.write('hr');
+
+        // 변경
+        //setAttribut
+        domElement.setAttribute('a','b');
+        domElement.setAttribute('class', 'dom-class');
+
+        // appendChild
+        const resultElement = document.getElementById('result')
+        resultElement.appendChild(hrElement);
+
+        // removeChild / removeAttribute
+
+        //
+        // resultElement.innerHTML = '<strong>innerHTML</strong>'; // strong 태그 사용되서 출력 
+        // resultElement.innerText = '<strong>innerText</strong>'; // 문자 그대로 출력
+
+
+        domElement.id = 'dom2';
+
+        resultElement.classList.add('blue'); // 클래스 만들어서 바꾸기
+        resultElement.style.color = 'gold'; // 직접 바꾸기
+        // 우선순위는 style이 제일 높음 -> 필수적인것 외엔 css 클래스 만들기
+
+
+
+        // BOM (Browser Object Model)
+        // 자바스크립트를 이용하여 브라우저를 제어가능 하도록 설정하는 객체모델
+        // alert('1');
+        // prompt();
+
+        // console.log(location);
+
+        // setTimeout : 일정 시간 후에 함수를 실행하는 메소드
+        setTimeout(print, 2000);
+        function print() {
+            console.log('print setTimeout'); // 2초뒤에 출력됨
+        }
+        // setInterval : 일정시간 후에 함수 여러번 실행
+        
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

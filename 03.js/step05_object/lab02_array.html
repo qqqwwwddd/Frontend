@@ -40,6 +40,235 @@
 
         }
 
+        let arr3 = [1, 2, 3, 4, 5];
+        // 요소 추가 
+        // push() 배열의 맨뒤에 순차적 요소 추가
+        // arr3.push(6, 7, 8, 2, 3);
+        // console.log(arr3); 
+
+        // // unshift() 배열의 맨 앞에 순차적 요소 추가 
+        // arr3.unshift(0, 11, 22);
+        // console.log(arr3);
+
+        // 요소 삭제 
+        // pop() 맨 뒤의 요소를 삭제(+반환)
+        // console.log(arr3);
+        // console.log(arr3.pop());
+        // console.log(arr3);
+        
+        // // shift() 맨 앞의 요소를 삭제 (+반환)
+        // console.log(arr3);
+        // console.log(arr3.shift());
+        // console.log(arr3);
+        
+        // splice(idx) : 지정한 인덱스 요소 포함하여 이후 요소 모두 삭제 
+        // console.log(arr3); //->[1, 2, 3, 4, 5]
+        // arr3.splice(2); // index 번호가 2 인 숫자부터 맨 끝까지 삭제 
+        // console.log(arr3); //->[1, 2]
+
+        // splice(idx1, n) : 지정한 인덱스의 요소 포함하여 n개수 만큼 요소 삭제 
+        // console.log(arr3); //-> [1,2,3,4,5]
+        // arr3.splice(1, 1);
+        // arr3.splice(1, 1, 0) -> 빈거에 추가 
+        // console.log(arr3); //-> [1,3,4,5]
+
+
+        // slice(idx1, idx2) : 원본 배열에 변화x
+        // 지정한 인덱스의 요소 포함하여 또 다른 지정범위의 인덱스 요소까지 출력
+        console.log(arr3); //->[1,2,3,4,5]
+        console.log(arr3.slice(2, 3)); //->[3]
+
+        // indexOf : 해당 요소의 인덱스 값 반환
+        console.log(arr3); //-> [1,2,3,4,5]
+        console.log(arr3.indexOf(4)); //-> 3
+        console.log(arr3.indexOf(0)); //-> -1   //없는 요소 입력하면 -1 반환        
+
+        // find : 테스트 함수의 조건에 맞는 첫번째 요소 값을 반환
+        // findIndex : 테스트 함수의 조건에 맞는 첫번째 요소의 인덱스 값을 반환 
+
+        // find / findIndex
+        let even = arr3.find((value) => (value%2 == 0));
+        console.log(even);
+
+        // -- ? 나이가 10살 미만인 고양이만 검색
+        let cats = [
+            {name : '마일로', age: 10},
+            {name : '앙꼬', age: 8},
+            {name : '포우', age: 12},
+            {name : '포니', age: 5}
+        ];
+
+        // let under10 = cats.find((cat) => console.log(cat));
+        let under10 = cats.find((cat) => cat.age < 10);
+        console.log(under10);   //{name: '앙꼬', age: 8}    
+        
+        
+        // for ~ of : 순차적으로 내부 요소에 접근 할 수 있는 이터러블 (배열을 일반화)한 객체만 사용가능
+        let cities = ["Busan", "Seoul", "Paris", "jip"];
+        for (let city of cities) {
+            console.log(city);
+        }
+
+        let name = "JavaScript"
+        // for(let i = 0; i < name.length; i++){
+        //     console.log(name[i]);
+        // }    
+        
+
+        // 유사배열 : 배열처럼 인덱스와 같이 길이 프로퍼티가 존재 / 배열은 아님
+        let likeArray = {
+            0:'오늘 점심',
+            1:'뭐먹지',
+            length:2
+        }
+
+        console.log(typeof likeArray);
+        // is not iterable ==> is iterable
+        // for (let element of likeArray) {
+        //     console.log(element);
+        // }
+
+        // Array.from() : 유사 배열을 받아서 진짜 배열로 만들어줌 
+        let arr4 = Array.from(likeArray);
+        console.log(arr4);
+        for (let element of arr4) {
+             console.log(element);
+        }
+
+        // join() : 문자열 연결
+        console.log(arr4.join());
+        console.log(arr4.join(' ')); //-> ,(default) 를 ' '공백으로 변경 
+
+        // foreach() : 배열만 사용 가능한 메서드 
+        // 내부 함수의 형태로 값 전달하는 메서드
+
+        let avengers = ["스파이더맨", "호크아이", "헐크"];
+        
+        // ver1
+        // avengers.forEach((avenger) =>
+        //      console.log(avenger));
+
+        // ver2
+        avengers.forEach(printName);
+
+        function printName(avenger) {
+            console.log(avenger);
+        }
+
+        // ver3
+        avengers.forEach(function printName(avenger) {
+            console.log(avenger);
+        });
+
+
+        // map
+        let arr5 = [1, 2, 3, 4, 5];
+        // ? arr5 요소들을 제곱하여 expo라고 하는 배열에 담아라
+
+        let expo = [];
+
+
+         // for
+        for(let i = 0; i < arr5.length; i++) {
+            expo.push(arr5[i] * arr5[i]);
+        }
+
+         // foreach
+         arr5.forEach((n) => {expo.push(n * n);
+            console.log(expo); 
+            });
+
+         // map
+         arr5.map((n) => expo.push(n * n));
+
+         // map
+         let expo2 = arr5.map((n) => n * n);
+
+        console.log(expo);
+        // [1, 4, 9, 16, 25 ... ] // push 하면 계속 쌓임
+        console.log(expo2);
+        // [1, 4, 9, 16, 25]
+
+
+        // map 
+        const info = [
+            {
+                id: 1,
+                name: "js"
+            },
+            {
+                id: 2,
+                name: "javascript"
+            }
+        ];
+
+            // info 만 출력하고 싶으면
+        
+        const names = info.map(info => info.name);
+        console.log(names);
+    
+
+
+        // filter()
+        const todos = [
+            {
+                id: 1,
+                todo: '자격증공부',
+                done: true
+            },
+            {
+                id: 2,
+                todo: '프로젝트',
+                done: false
+            },
+            {
+                id: 3,
+                todo: '운동',
+                done: false
+            }
+        ];
+
+
+        console.log(todos);
+        console.log(todos.find(todo => todo.id === 3)); //-> {id: 3, todo: '운동', done: false}
+        console.log(todos.find(todo => todo.done === true)); //-> {id: 1, todo: '자격증공부', done: true}
+
+        // find는 첫번쨰 객체에 대한 출력만 가능 값 1개 
+        console.log(todos.filter(todo => todo.done === false));
+        //(2) [{…}, {…}]
+        // 0: {id: 2, todo: '프로젝트', done: false}
+        // 1: {id: 3, todo: '운동', done: false}
+        // length: 2
+        // [[Prototype]]: Array(0)
+        //-> 값이 하나라도 배열로 출력
+
+        // reduce() : 값들을 축적해주는 역할 
+        console.log(arr5); //-> [1, 2, 3, 4, 5]
+        // arr5 총 합?
+        let sum = 0;
+        arr5.forEach(num => {
+            sum += num;
+        });   // sum 처럼 다른 변수 사용하지 않고 값 담을려면? reduce() 사용
+
+        console.log(sum);   
+        
+        // reduce 사용 
+        let sumReduce = arr5.reduce((acc, current) => acc + current);  
+        //acc 에 연산이 축적이 됨 연산결과가 앞의 acc로 들어가고 current는 새로운값 들어감
+        // sum에 저장 
+        sum = arr5.reduce((acc, current) => acc + current);
+        console.log(sumReduce);
+        console.log(sum);
+
+
+
+    
+
+
+
+
+
+
 
 
 

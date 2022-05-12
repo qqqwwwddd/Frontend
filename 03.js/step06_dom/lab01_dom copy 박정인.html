@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab01_dom.html</title>
+    <style>
+        .blue {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="dom">
+        <h1>Plus-Minus</h1>
+        <div id="result">0</div>
+        <button id="btn-up" class="btn" name="up-button">+1</button>
+        <button id="btn-bottom" class="btn">-1</button>
+    </div>
+
+    <script>
+        let num = 0;
+
+        const upClick = document.querySelector('#btn-up');
+        const bottomClick = document.querySelector('#btn-bottom');
+        const resultElement = document.querySelector('#result');
+        
+        upClick.addEventListener('click', (event) => { 
+            num++
+            resultElement.innerHTML = num;
+        });
+        
+        bottomClick.addEventListener('click', () => { 
+            num--
+            resultElement.innerHTML = num;
+        });
+    
+    </script>
+</body>
+</html>

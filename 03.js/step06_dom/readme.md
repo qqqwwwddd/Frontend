@@ -1,4 +1,4 @@
-## [DOM]
+## [DOM] {https://github.com/qqqwwwddd/Frontend/blob/master/03.js/step06_dom/lab01_dom.html}
 
 문서 객체 모델 (Document Object Model) : 웹페이지의 모든 컨텐츠를 객체로 표현하는 모델
 
@@ -93,9 +93,9 @@ Document 객체 : 웹페이지 자체, 따라서 모든 HTML 요소에 접근하
 
     ---
 
-    ## [Event]
+## [Event] {https://github.com/qqqwwwddd/Frontend/blob/master/03.js/step06_dom/lab02_event.html}
 
-    # [Event 적용]
+# [Event 적용]
 
     1. 인라인 방식
     2. 프로퍼티 방식

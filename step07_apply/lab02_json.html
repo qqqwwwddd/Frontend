@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab02_json.html</title>
+</head>
+<body>
+    <script>
+        // JSON : JavaScript Object Notation, 
+        //        문자열의 형태로 데이터를 주고 받는 포맷
+
+        // 특징 : 내장객체-> 자바스크립트가 운영되는 모든 전역(global) 접근 가능
+        // 기본문법 : key:value 한 쌍으로 구성, "" 큰 따옴표가 붙어 있는 상태 
+        
+        // 기능 메소드 
+        // - JSON.stringify : 객체를 JSON으로 변경 -> 직렬화
+        // 객체, 배열, 문자형, 숫자형, boolean(true/false), null 데이터만 JSON 으로 변경 가능 
+            // 함수, 심볼, undefined -> JSON.stringify 에서는 적용안됨
+
+        // 
+        let obj1 = {name: "js"};
+        console.log(obj1); //-> {name: 'js'}
+        console.log(typeof obj1); //-> object
+        console.log(obj1.name); //-> js
+
+        let obj2 =  "{'name': 'js'}";
+        console.log(obj2); //-> {'name': 'js'}
+        console.log(typeof obj2); //-> string
+        console.log(obj2.name); //-> undefined
+
+        // JSON.stringify //
+        let obj3 = JSON.stringify(obj1);
+        console.log(obj3); //-> {"name":"js"}
+        console.log(typeof obj3); //-> string
+
+        let deepObj = {
+            info: {
+                private: {
+                    name: 'js',
+                    age: 17,
+                    hobbies: ['programming', 'study']
+                }
+            },
+            purpose: undefined
+        }
+
+        console.log(JSON.stringify(deepObj));
+        //-> {"info":{"private":{"name":"js","age":17,"hobbies":["programming","study"]}},"purpose":"비구조화 테스트"}
+        // purpose: '비구조화테스트' 에서 undefined로 바꾸면?
+        //-> {"info":{"private":{"name":"js","age":17,"hobbies":["programming","study"]}}} 
+        // purpose 사라져버림
+
+
+        // JSON.parse : 문자열을 자바스크립트의 객체로 바꿈 -> 역직렬화
+
+        // let obj4 = JSON.parse(obj2); // Uncaught SyntaxError: Unexpected token ' in JSON at position 1 at JSON.parse (<anonymous>)
+            //-> JSON으로 객체를 만들때는 형태가 중요 "" 로 만들어야함
+        
+        let obj5 = {"name": "js"};
+        let obj6 = '{"name": "js"}';
+
+        console.log(typeof obj5);
+        console.log(obj6); //-> {"name": "js"}
+
+
+        // let obj55 = JSON.parse(obj5); 에러
+        let obj66 = JSON.parse(obj6); 
+        console.log(obj66); //-> {name: 'js'} 파싱 성공 
+        console.log(typeof obj66); // object
+
+        // => JSON.parse 할때는 string 형태의 문자만 가능 
+
+        let obj7 = '{"name"}';
+        console.log(obj7);
+        console.log(typeof obj7);
+        // console.log(JSON.parse(obj7)); ->Uncaught SyntaxError: Unexpected token } in JSON at position 7
+        // -> key:value 반드시 한쌍으로 구성 !!!!
+
+
+        // 실습 
+        // let obj8 = {};
+        // obj8.info = 'data';
+        // ?? stringify 직렬화 가 될까? 
+
+
+        let deepObj2 = {
+            info: {
+                private: {
+                    name: 'js',
+                    age: 17,
+                    hobbies: ['programming', 'study']
+                }
+            },
+            purpose: undefined
+        }
+
+
+    </script>
+</body>
+</html>

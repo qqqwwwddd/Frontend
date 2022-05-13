@@ -111,3 +111,17 @@ Document 객체 : 웹페이지 자체, 따라서 모든 HTML 요소에 접근하
     - FocusEvent : focus, blur, focusin, focusout, ....
 
     - keyboardEvent : keydown, keypress, keyup, ...
+
+
+  ### [event : 이벤트 실행시 자바스크립트 내부적으로 만들어 지는 객체]
+
+    - 이벤트 흐름 : 이벤트가 발생하는 HTML 요소는 계층적인 구조로 되어 있기 때문에 우리가 알게 모르게 주변 요소에 영향 미치고 있음
+    
+    - 이벤트 전파 (Propagation) : 전파되는 방향을 기준으로 버블링 (Bubbling), 캡쳐링(Capturing)이 존재
+
+
+  #### [버블링] 
+  : 자식요소 -> 부모요소 까지 전달
+
+  #### [캡쳐링]
+  : 부모요소 -> 자식요소

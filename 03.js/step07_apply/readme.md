@@ -46,3 +46,32 @@
 
 ### [Promise]
 
+### [async function]
+    : 자체적으로 프로미스 적용됨
+ - async function 함수명() {
+ }
+### [await]
+: 프로미스의 결과를 기다리기 위해 사용
+    -> await는 반드시 async 내부에서만 사용가능
+
+### [XMLHTTPRequest (XHR)]
+    : 서버와 비동기로 상호작용 하기 위해 사용되는 객체
+
+### [onreadystatechange]
+    : 서버 통신 진행시 내부 진행 상태의 변화를 감지
+
+ - readyState
+    : 서버 통신 진행시 진행 상태를 확인, 번호로 반환
+         1 : 요청 시작
+         2 : 요청 중
+         3 : 응답 중
+         4 : 응답 완료
+
+ - state 
+    : 응답 상태 코드, 200은 정상 응답
+
+
+### [axios]
+    : 비동기 통신을 위해 사용되는 라이브러리 (Promise기반)
+
+    

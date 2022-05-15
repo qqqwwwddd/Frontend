@@ -6,9 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>lab03_asynchronous.html</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
+    <div id="viewResult"></div>
     <script>
         // 동기 synchronous : 요청 결과 응답 후 다음 동작이 실행되는 방식
         console.log(1);
@@ -259,6 +261,151 @@
 
             }
         }
+
+
+        //  HTTP 구조
+        //  1. Start Line
+        // HTTP 메소드, Request(요청) 타겟(= 목표 주소), HTTP 버전, HTTP 상태코드 ...
+        // 	HTTP 메소드 종류: GET(데이터 요청), POST(데이터 추가), PUT(데이터 수정), DELETE(데이터 삭제) : https://developer.mozilla.org/ko/docs/Web/HTTP/Methods
+        // 	HTTP 상태 코드: (1xx, 2xx, 3xx, 4xx, 5xx) : https://developer.mozilla.org/ko/docs/Web/HTTP/Status
+
+        //  2. Header(key : value)
+        //             Date(현재 시간), Content - type(MIME, body부분의 미디어 타입, ex.text / html, application / json, ...) : https://developer.mozilla.org/ko/docs/Web/HTTP/Basics_of_HTTP/MIME_Types,
+        //             Content - lenght(컨텐츠 길이), Host(서버 호스트 이름과 포트번호)
+        //             Authorization(인증 토큰), Cookie(쿠키), Accept(미디어 타입 종류)
+
+        //  3. Body
+        // 실제 데이터(Request - 전송하는 데이터, Response - 반환하는 데이터)
+        // 전송 데이터 혹은 반환 데이터가 없다면 - Body는 비어 있을 수 있음
+
+
+        // XMLHTTPRequest (XHR) : 서버와 비동기로 상호작용 하기 위해 사용되는 객체
+        function ajaxTest() {
+
+            let xhr = new XMLHttpRequest();
+
+            // onreadystatechange
+            // 서버 통신 진행시 내부 진행 상태의 변화를 감지
+
+            // readyState
+            // 서버 통신 진행시 진행 상태를 확인, 번호로 반환
+            // 1 : 요청 시작
+            // 2 : 요청 중
+            // 3 : 응답 중
+            // 4 : 응답 완료
+
+            // status
+            // 응답 상태 코드, 200은 정상 응답
+
+
+            xhr.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    console.log(this.response);
+                    // console.log(typeof this.response); -> String
+                    let responseObj = JSON.parse(this.response);
+                    console.log(responseObj); //-> (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+                    console.log(typeof responseObj); //-> object
+
+                    // ? id 값이 3번인 객체의 name만 출력하기 // Clementine Bauch
+                    for (i = 0; i < responseObj.length; i++) {
+                        if (responseObj[i].id === 3) {
+                            console.log(responseObj[i].name);
+                        }
+                    }
+
+                    // foreach 로 
+                    // responseObj.forEach(element => {
+                    //     console.log(element.name);
+                    // })
+
+                };
+            };
+            // https://jsonplaceholder.typicode.com/
+            xhr.open("GET", "https://jsonplaceholder.typicode.com/users?id=3", true);
+
+            xhr.send();
+        }
+
+
+        ajaxTest();
+
+
+        // axios : 비동기 통신을 위해 사용되는 라이브러리 (Promise기반)
+        // head 태그에 세팅 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js">
+
+
+        // axios({
+        //     method: "GET",
+        //     url: "https://jsonplaceholder.typicode.com/users"    
+        // }).then( response => console.log(response.data));
+        // // -> 파싱된 형태로 받을 수 있음 
+
+        axios.get("https://jsonplaceholder.typicode.com/users")
+            .then(response => console.log(response.data));
+
+        // ? axios 통해 받아온 데이터를 div 태그에 표현하기
+
+        axios.get("https://jsonplaceholder.typicode.com/users")
+            .then(response => {
+                let value = " ";
+
+                response.data.forEach(element => {
+                    value += element.id + '<br/>'
+                    value += element.email + '<br/>'
+                    value += element.username + '<br/>' 
+                    + '--------' + '<br/>'
+                });
+                document.getElementById('viewResult').innerHTML = value;
+
+            
+            // 코드작성 
+            
+            // for (let i = 0; i < response.data.length; i++) {
+                
+            //     document.getElementById('viewResult').innerHTML += 
+            //     ' 이름 : ' + response.data[i].name +'<br>'
+            //     console.log(response.data[i].name);
+            // }
+            });
+            
+        // 민규 코드
+        //         let innerData = document.querySelector("#viewResult");
+        //         const usersURL = `https://jsonplaceholder.typicode.com/users`;
+
+        //         axios.get(usersURL).then((res) => {
+        //             for (let i = 0; i < res.data.length; i++) {
+        //                 console.log(res.data[i]);
+        //                 let innerText = `
+        //     <h1> id : ${res.data[i].id}</h1>
+        //     <h2> 이름 : ${res.data[i].name}</h2>
+        //     <h3> 닉네임 : ${res.data[i].username}</h3>
+        //     <span> 도시 : ${res.data[i].address.city} </span><br>
+        //     <span> 위도 : ${res.data[i].address.geo.lat} </span><br>
+        //     <span> 경도 : ${res.data[i].address.geo.lng} </span><br>
+        //     <span> 회사이름 : ${res.data[i].company.name} </span>
+        // `;
+        //                 innerData.innerHTML = innerText;
+        //             }
+        //         });
+
+
+        // 윤호 코드
+        // html에서 div를 안 만들었을 때
+        // axios.get("https://jsonplaceholder.typicode.com/users")
+        //     .then(response => {
+        //         let data = '';
+        //         response.data.forEach(element => {
+        //             data += "id" + element.id + " : " + element.name + ` <br>`;
+        //         });
+
+        //         let htmlCode = `
+        //     <div>
+        //         ${data}
+        //     </div>
+        // `;
+        //         document.write(htmlCode);
+        //     });
+
 
     </script>
 </body>

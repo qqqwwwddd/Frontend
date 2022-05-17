@@ -8,4 +8,5 @@ axios.get(keyURL, {
     // params: {    
     // } 
 }).then(res => res.data.culturalEventInfo.row)
-    .then(data => console.log(data))
+    .then((data) => 
+        console.log(data))
